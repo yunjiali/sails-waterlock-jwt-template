@@ -1,0 +1,228 @@
+{
+  "data": {
+    "attempt": [
+      {
+        "user": 2,
+        "successful": true,
+        "ip": "127.0.0.1",
+        "port": "61809",
+        "createdAt": "2014-11-11T23:06:37.579Z",
+        "updatedAt": "2014-11-11T23:06:37.579Z",
+        "id": 2
+      }
+    ],
+    "auth": [
+      {
+        "password": "$2a$10$PflsyGx080rWvCRzRsLfrOBxAdZ4a7BVA1r1GQ7DDtqeXSVRm8djC",
+        "email": "abc@gmail.com",
+        "createdAt": "2014-11-11T23:06:37.477Z",
+        "updatedAt": "2014-11-11T23:06:37.497Z",
+        "id": 4,
+        "user": 2
+      }
+    ],
+    "jwt": [],
+    "resettoken": [],
+    "rtest": [],
+    "use": [],
+    "user": [
+      {
+        "auth": 4,
+        "createdAt": "2014-11-11T23:06:37.493Z",
+        "updatedAt": "2014-11-11T23:06:37.493Z",
+        "id": 2
+      }
+    ]
+  },
+  "schema": {
+    "attempt": {
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "successful": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "ip": {
+        "type": "string"
+      },
+      "port": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "auth": {
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "resetToken": {
+        "type": "integer",
+        "model": "resettoken",
+        "foreignKey": true,
+        "alias": "resetToken"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "jwt": {
+      "token": {
+        "type": "string"
+      },
+      "owner": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "owner"
+      },
+      "revoked": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "resettoken": {
+      "token": {
+        "type": "text"
+      },
+      "owner": {
+        "type": "integer",
+        "model": "auth",
+        "foreignKey": true,
+        "alias": "owner"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "rtest": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "use": {
+      "remoteAddress": {
+        "type": "string"
+      },
+      "jsonWebToken": {
+        "type": "integer",
+        "model": "jwt",
+        "foreignKey": true,
+        "alias": "jsonWebToken"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "auth": {
+        "type": "integer",
+        "model": "auth",
+        "foreignKey": true,
+        "alias": "auth"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "attempt": {
+      "id": 2
+    },
+    "auth": {
+      "id": 4
+    },
+    "jwt": {
+      "id": 1
+    },
+    "resettoken": {},
+    "rtest": {},
+    "use": {
+      "id": 1
+    },
+    "user": {
+      "id": 2
+    }
+  }
+}
