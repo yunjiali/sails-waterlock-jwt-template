@@ -3,40 +3,98 @@
  */
 
 
-var request = require('supertest');
+var request = require('supertest-as-promised');
+var should = require('should');
 
 describe('UsersController', function() {
 
-    describe('GET /rtest', function(){
-        it('should get open access', function (done) {
-            request(sails.hooks.http.app)
-                .get('/rtest/open')
-                .expect(200,done);
-        });
-    });
-
-
     describe('POST /user/create', function() {
 
-        it('should register normal user successfully', function (done) {
-            console.log("test2");
+        it('should register normal user successfully and logout', function (done) {
 
             request(sails.hooks.http.app)
                 .post('/user/create')
-                .send({username:'test4',password:'hellowaterlock111',firstname:'test',lastname:'one',email:'test6@synote.com'})
+                .send({
+                    username: 'test4',
+                    password: 'hellowaterlock111',
+                    firstname: 'test',
+                    lastname: 'one',
+                    email: 'test6@synote.com'
+                })
                 .expect(200)
-                .end(function(err,res){
+                .end(function (err, res) {
                     if (err) return done(err);
+                    var resObj = JSON.parse(res.text);
+                    resObj.success.should.equal(true);
                     done();
                 });
         });
 
 
-        it('should register admin user successfully', function (done) {
+        it('should register admin user successfully and logout', function (done) {
             request(sails.hooks.http.app)
                 .post('/user/create')
-                .send({username: 'admin', password: 'hellowaterlock',firstname:'admin', lastname:'one',email:'admin@synote.com', role:'admin'})
-                .expect(200,done);
+                .send({
+                    username: 'admin',
+                    password: 'hellowaterlock',
+                    firstname: 'admin',
+                    lastname: 'one',
+                    email: 'admin@synote.com',
+                    role: 'admin'
+                })
+                .expect(200)
+                .end(function (err, res) {
+                    //if (err) return done(err);
+                    var resObj = JSON.parse(res.text);
+                    resObj.success.should.equal(true);
+                    done();
+                });
+        });
+
+        //TODO: user with same username shouldn't be registered
+        //TODO: user with same email shouldn't be registered
+    });
+
+    describe('POST /user/jwt', function() {
+
+        //logout before any test
+        before(function(done){
+            request(sails.hooks.http.app)
+                .post('/auth/logout')
+                .expect(200)
+                .end(function(err,res){
+                    done();
+                });
+        });
+
+        it('should not get jwt token if not logged in', function (done) {
+            request(sails.hooks.http.app)
+                .post('/user/jwt')
+                .expect(403, done);
+        });
+
+        it('should login and get jwt token',function(){
+            request(sails.hooks.http.app)
+                .post('/auth/login')
+                .send({email: 'teststatc@synote.com', password: 'hellowaterlock'})
+                .expect(200)
+                .then(function(res){
+                    //console.log(res.text);
+                    return
+                        request(sails.hooks.http.app)
+                            .post('/user/jwt')
+                            .expect(200)
+                            .end(function(err,res){
+                                //console.log(res);
+                                var resObj = JSON.parse(res.text);
+                                resObj.token.should.have.property("token");
+                            });
+
+                })
+                .then(function(res){
+                    //done();
+                });
+
         });
     });
 });

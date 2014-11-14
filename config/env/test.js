@@ -20,5 +20,8 @@ module.exports = {
     models: {
         connection: 'testMysqlServer',
         migrate:'drop'
+    },
+    log: {
+       level: "warn"
     }
 };

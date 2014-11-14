@@ -31,3 +31,4 @@ Things need to do before start:
 
  * you need to install sails -g and mocha -g if you want to test
  * set the mocha.opts under test folder to something bigger, or the test will fail because of timeout problem
+ * run '''npm test''' for testing
