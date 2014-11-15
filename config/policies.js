@@ -49,6 +49,7 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
 	RtestController:{
+	  admin:['isAdmin'],
 	  restricted:['hasJsonWebToken'],
 	  open:true
   	}

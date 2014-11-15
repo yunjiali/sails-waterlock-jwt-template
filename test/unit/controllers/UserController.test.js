@@ -5,6 +5,7 @@
 
 var request = require('supertest-as-promised');
 var should = require('should');
+var async = require('async');
 
 describe('UsersController', function() {
 
@@ -69,31 +70,37 @@ describe('UsersController', function() {
 
         it('should not get jwt token if not logged in', function (done) {
             request(sails.hooks.http.app)
-                .post('/user/jwt')
+                .get('/user/jwt')
                 .expect(403, done);
         });
 
-        it('should login and get jwt token',function(){
-            request(sails.hooks.http.app)
-                .post('/auth/login')
-                .send({email: 'teststatc@synote.com', password: 'hellowaterlock'})
-                .expect(200)
-                .then(function(res){
-                    //console.log(res.text);
-                    return
-                        request(sails.hooks.http.app)
-                            .post('/user/jwt')
-                            .expect(200)
-                            .end(function(err,res){
-                                //console.log(res);
-                                var resObj = JSON.parse(res.text);
-                                resObj.token.should.have.property("token");
-                            });
-
-                })
-                .then(function(res){
-                    //done();
-                });
+        it('should login and get jwt token',function(done){
+            var agent = request.agent(sails.hooks.http.app);
+            async.series([
+                function(callback){
+                    agent
+                        .post('/auth/login')
+                        .send({email: 'teststatic@synote.com', password: 'hellowaterlock'})
+                        .expect(200)
+                        .end(function(err,res){
+                            console.log(res);
+                            callback(err, res)
+                        });
+                },
+                function(callback){
+                    agent
+                        .get('/user/jwt')
+                        .expect(200)
+                        .end(function(err,res){
+                            //console.log(res);
+                            var resObj = JSON.parse(res.text);
+                            resObj.should.have.property("token");
+                            callback();
+                        });
+                }
+            ], function(err, results){
+                done();
+            });
 
         });
     });

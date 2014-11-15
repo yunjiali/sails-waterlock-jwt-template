@@ -5,6 +5,7 @@
 
 var Sails = require('sails');
 var request = require('supertest-as-promised');
+var async = require('async');
 
 
 before(function(done) {
@@ -15,22 +16,38 @@ before(function(done) {
         // here you can load fixtures, etc.
 
         //add test user
-        request(sails.hooks.http.app)
-            .post('/user/create')
-            .send({username:'teststatic',password:'hellowaterlock',firstname:'test',lastname:'static',email:'teststatic@synote.com'})
-            .expect(200)
-            .then(function(res){
-                var resObj = JSON.parse(res.text);
-                resObj.success.should.equal(true);
-                return
-                    request(sails.hook.http.app)
-                        .post('/user/create')
-                        .send({username: 'adminstatic', password: 'hellowaterlockadmin',firstname:'admin', lastname:'static',email:'adminstatic@synote.com', role:'admin'})
-                        .expect(200);
-            })
-            .then(function(res){
-                done(err, sails);
-            });
+        async.series([
+            //add normal user
+            function(callback){
+                request(sails.hooks.http.app)
+                    .post('/user/create')
+                    .send({username:'teststatic',password:'hellowaterlock',firstname:'test',lastname:'static',email:'teststatic@synote.com'})
+                    .expect(200)
+                    .end(function(err,res){
+                        callback(err);
+                    })
+            },
+            //add admin user
+            function(callback) {
+                request(sails.hooks.http.app)
+                    .post('/user/create')
+                    .send({
+                        username: 'adminstatic',
+                        password: 'hellowaterlockadmin',
+                        firstname: 'admin',
+                        lastname: 'static',
+                        email: 'adminstatic@synote.com',
+                        role: 'admin'
+                    })
+                    .expect(200)
+                    .end(function (err, res) {
+                        done(err, sails);
+                    })
+            }
+
+        ],function(err,results){
+            done(err,sails)
+        });
     });
 });
 

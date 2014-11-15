@@ -10,7 +10,7 @@
 
 module.exports = require('waterlock').actions.user({
   //TODO: write test case
-  validate_username: function(req, res) {
+  validateUsername: function(req, res) {
     var params = req.params.all();
     User.findOne({name: params.username}).exec(function(err, user){
       if(err) {
@@ -29,7 +29,7 @@ module.exports = require('waterlock').actions.user({
   },
   //TODO: write test case
   //TODO: write it up
-  validate_email: function(req, res) {
+  validateEmail: function(req, res) {
     var params = req.params.all();
     User.findOne({name: params.email}).exec(function(err, user){
       if(err) {
@@ -95,6 +95,9 @@ module.exports = require('waterlock').actions.user({
           });
         }
     );
+  },
+  show:function(req,res){ //won't see unless the owner
+
   },
   login_fail:function(req,res){
     return res.send({success:false});
