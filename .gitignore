@@ -27,5 +27,43 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-.idea
+########################
+# sails
+########################
+.sails
+.waterline
+.rigging
 .tmp
+
+
+########################
+# node.js / npm
+########################
+lib-cov
+*.csv
+*.dat
+*.out
+*.gz
+
+results
+
+node_modules
+
+npm-debug.log
+
+
+########################
+# misc / editors
+########################
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+.idea
+
+
+########################
+# local config
+########################
+config/local.js
