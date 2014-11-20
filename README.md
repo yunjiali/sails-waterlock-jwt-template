@@ -9,9 +9,7 @@ Dependencies:
 
 The template have the following functions via API
  * User registration
- * email confirmation (coming later)
- * User login and logout via Json web token (JWT)
- * Change password (coming later)
+ * User login via Json web token (JWT)
  * A simple user role management
  * i18n (ab, en and zh currently) use sails.__()
  * A random test (rtest) controller, if you login, you can see it.
@@ -32,3 +30,9 @@ Things need to do before start:
  * you need to install sails -g and mocha -g if you want to test
  * set the mocha.opts under test folder to something bigger, or the test will fail because of timeout problem
  * run '''npm test''' for testing
+
+
+TODOs:
+* logout using jwt
+* email registration confirmation
+* reset password

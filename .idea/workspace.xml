@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab82ad1-6dc0-4d03-b7cb-293dc7a5863f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/policies/isAdmin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/policies/orPolicy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/RtestController.js" afterPath="$PROJECT_DIR$/api/controllers/RtestController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/controllers/RtestController.test.js" afterPath="$PROJECT_DIR$/test/unit/controllers/RtestController.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/UserController.js" afterPath="$PROJECT_DIR$/api/controllers/UserController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/controllers/UserController.test.js" afterPath="$PROJECT_DIR$/test/unit/controllers/UserController.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bootstrap.test.js" afterPath="$PROJECT_DIR$/test/bootstrap.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/policies.js" afterPath="$PROJECT_DIR$/config/policies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="5ab82ad1-6dc0-4d03-b7cb-293dc7a5863f" name="Default" comment="" />
     <ignored path="sails-passport-token-template.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -348,7 +337,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tingli/demo-11-2014" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../synote.js/server" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="options.lastSelected" value="preferences.toDoOptions" />
