@@ -18,18 +18,18 @@ The template have the following functions via API
 
 Things need to do before start:
  * create mysql database "sails_jwt_template", and:
- '''grant all on sails_jwt_template.* to 'test'@'localhost' identified by 'test';'''
+ ```grant all on sails_jwt_template.* to 'test'@'localhost' identified by 'test';```
 
  * if you want to do test, create database "sails_jwt_template_test", username: test, password: test
- '''grant all on sails_jwt_template_test.* to 'test'@'localhost' identified by 'test';'''
+ ```grant all on sails_jwt_template_test.* to 'test'@'localhost' identified by 'test';```
 
  * install the dependencies by:
- '''npm install'''
+ ```npm install```
  But some of the dependencies may need sudo to install
 
  * you need to install sails -g and mocha -g if you want to test
  * set the mocha.opts under test folder to something bigger, or the test will fail because of timeout problem
- * run '''npm test''' for testing
+ * run ```npm test``` for testing
 
 
 TODOs:
