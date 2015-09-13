@@ -4,8 +4,9 @@ sails-passport-token-template
 A sails.js authentication template using waterlock and token. Perfect for authentication from REST API using mobile devices
 
 Dependencies:
- * Sailsjs 0.10.5
- * waterlock 0.0.13
+ * Sailsjs 0.11.0
+ * waterlock 0.1.0
+ * waterlock-local-auth 0.0.6
 
 The template have the following functions via API
  * User registration
