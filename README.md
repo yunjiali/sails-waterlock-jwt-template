@@ -34,6 +34,7 @@ Things need to do before start:
 
 
 TODOs:
+* Fix the deprecated onConnection in sailsjs
 * logout using jwt
 * email registration confirmation
 * reset password
