@@ -83,19 +83,9 @@ describe('UsersController', function() {
                         .send({email: 'teststatic@synote.com', password: 'hellowaterlock'})
                         .expect(200)
                         .end(function(err,res){
-                            console.log(res);
-                            callback(err, res)
-                        });
-                },
-                function(callback){
-                    agent
-                        .get('/user/jwt')
-                        .expect(200)
-                        .end(function(err,res){
-                            //console.log(res);
                             var resObj = JSON.parse(res.text);
                             resObj.should.have.property("token");
-                            callback();
+                            callback(err, res)
                         });
                 }
             ], function(err, results){

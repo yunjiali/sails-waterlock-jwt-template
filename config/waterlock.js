@@ -72,6 +72,19 @@ module.exports.waterlock = {
     // user to it during the hasJsonWebToken 
     // middleware
     stateless: false,
+
+    // set the name of the jwt token property
+    // in the JSON response
+    tokenProperty: 'token',
+
+    // set the name of the expires property
+    // in the JSON response
+    expiresProperty: 'expires',
+
+    // configure whether or not to include
+    // the user in the respnse - this is useful if
+    // JWT is the default response for succesfull login
+    includeUserInJwtResponse: true
   },
 
   // Post Actions
@@ -90,7 +103,7 @@ module.exports.waterlock = {
       // obj - {controller: 'blog', action: 'post'}
       // string - 'custom json response string'
       // default - 'default'
-      success: 'default',
+      success: 'jwt',
 
       // This can be any one of the following
       // 
@@ -116,6 +129,24 @@ module.exports.waterlock = {
 
       // This can be any one of the following
       // 
+      // url - 'http://example.com'
+      // relativePath - '/blog/post'
+      // obj - {controller: 'blog', action: 'post'}
+      // string - 'custom json response string'
+      // default - 'default'
+      failure: 'default'
+    },
+    register: {
+      // This can be any one of the following
+      //
+      // url - 'http://example.com'
+      // relativePath - '/blog/post'
+      // obj - {controller: 'blog', action: 'post'}
+      // string - 'custom json response string'
+      // default - 'default'
+      success: 'default',
+      // This can be any one of the following
+      //
       // url - 'http://example.com'
       // relativePath - '/blog/post'
       // obj - {controller: 'blog', action: 'post'}

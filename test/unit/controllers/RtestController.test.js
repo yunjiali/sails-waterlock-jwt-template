@@ -47,15 +47,8 @@ describe('RtestController', function() {
                         .send({email: 'teststatic@synote.com', password: 'hellowaterlock'})
                         .expect(200)
                         .end(function(err, res){
-                            callback();
-                        })
-                },
-                function(callback){
-                    agent
-                        .get('/user/jwt')
-                        .expect(200)
-                        .end(function(err, res){
                             var resObj = JSON.parse(res.text);
+                            //console.log(resObj);
                             resObj.should.have.property("token");
                             callback(null, resObj.token);
                         })
@@ -82,15 +75,8 @@ describe('RtestController', function() {
                         .send({email: 'adminstatic@synote.com', password: 'hellowaterlockadmin'})
                         .expect(200)
                         .end(function(err, res){
-                            callback();
-                        })
-                },
-                function(callback){
-                    agent
-                        .get('/user/jwt')
-                        .expect(200)
-                        .end(function(err, res){
                             var resObj = JSON.parse(res.text);
+                            //console.log(resObj);
                             resObj.should.have.property("token");
                             callback(null, resObj.token);
                         })
