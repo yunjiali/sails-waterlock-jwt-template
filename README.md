@@ -34,7 +34,7 @@ Things need to do before start:
 
 
 TODOs:
-* Fix the deprecated onConnection in sailsjs
+* Add log support for winston
 * email registration confirmation
 * reset password
 * Set up socket.io support

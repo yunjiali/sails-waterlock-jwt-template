@@ -19,6 +19,6 @@ module.exports = {
 
   models: {
       connection: 'devMysqlServer',
-      migrate:'alter'
+      migrate:'safe'
   }
 };

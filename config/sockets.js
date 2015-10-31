@@ -20,25 +20,30 @@ module.exports.sockets = {
   * sockets mixes in socket.io events for your routes and blueprints         *
   * automatically.                                                           *
   *                                                                          *
-  ***************************************************************************/
+  Deprecated
   onConnect: function(session, socket) {
 
     // By default, do nothing.
 
   },
-
+   ***************************************************************************/
 
   /***************************************************************************
   *                                                                          *
   * This custom onDisconnect function will be run each time a socket         *
   * disconnects                                                              *
   *                                                                          *
-  ***************************************************************************/
-  onDisconnect: function(session, socket) {
+  Deprecated
+   onDisconnect: function(session, socket) {
 
     // By default: do nothing.
-  },
+  }
+  **************************************************************************/
 
+  afterDisconnect: function (session, socket, cb) {
+    // Be sure to call the callback
+    return cb();
+  }
 
   /***************************************************************************
   *                                                                          *
