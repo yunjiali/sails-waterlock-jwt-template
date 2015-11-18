@@ -34,6 +34,7 @@ Things need to do before start:
 
 
 TODOs:
+* Add Redis for session storage in production enironment
 * Add log support for winston
 * email registration confirmation
 * reset password
