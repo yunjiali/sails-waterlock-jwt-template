@@ -56,12 +56,12 @@ module.exports.waterlock = {
   jsonWebTokens:{
 
     // CHANGE THIS SECRET
-    secret: 'sails-passport-token-template',
+    secret: 'sails-waterlock-token-template',
     expiry:{
       unit: 'days',
       length: '7'
     },
-    audience: 'app name',
+    audience: 'sails-waterlock-token-template',
     subject: 'subject',
 
     // tracks jwt usage if set to true
