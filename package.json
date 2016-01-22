@@ -26,7 +26,12 @@
     "waterlock-local-auth":"~0.0.6",
     "sails-mysql":"~0.10.7",
     "should":"~4.3.0",
-    "async":"~0.9.0"
+    "async":"~0.9.0",
+    "lodash": "~3.10.1",
+    "moment": "~2.10.6",
+    "connect-redis":"~1.4.5",
+    "q": "~1.4.1",
+    "bluebird":"~3.0.56.0"
   },
   "devDependencies":{
     "supertest":"~0.15.0",
