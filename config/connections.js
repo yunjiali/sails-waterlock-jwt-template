@@ -48,6 +48,14 @@ module.exports.connections = {
     password: 'test',
     database: 'sails_jwt_template'
   },
+  prodMysqlServer: {
+    adapter: 'sails-mysql',
+    host: 'localhost',
+    port:3306,
+    user: 'test',
+    password: 'test',
+    database: 'sails_jwt_template'
+  },
   testMysqlServer: {
     adapter: 'sails-mysql',
     host: 'localhost',

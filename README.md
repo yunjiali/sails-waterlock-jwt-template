@@ -4,7 +4,7 @@ sails-passport-token-template
 A sails.js authentication template using waterlock and token. Perfect for authentication from REST API using mobile devices
 
 Dependencies:
- * Sailsjs 0.11.0
+ * Sailsjs ~0.11.0
  * waterlock 0.1.0
  * waterlock-local-auth 0.0.6
 
@@ -32,10 +32,10 @@ Things need to do before start:
  * set the mocha.opts under test folder to something bigger, or the test will fail because of timeout problem
  * run ```npm test``` for testing
 
+In production environment, you need to install redis first. The default configuration has been added to config/env/production.js file.
+
 
 TODOs:
-* Add Redis for session storage in production enironment
-* Add log support for winston
 * email registration confirmation
 * reset password
 * Set up socket.io support
